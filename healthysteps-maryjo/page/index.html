@@ -1,0 +1,368 @@
+<title>Healthy Steps with Mary Jo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Lexend:wght@400;500;600&display=swap">
+<style>
+/* Layout: one calm column of full-width bands. Big type, big buttons, photos of real classes.
+   Palette: a fresh teal for trust and movement, marigold for "come join us" actions. */
+:root {
+  --bg: #F6FAF8;
+  --band: #E6F2EF;
+  --card: #FFFFFF;
+  --ink: #15302D;
+  --muted: #4A6461;
+  --line: #CFE1DC;
+  --teal: #0D6B66;
+  --teal-ink: #FFFFFF;
+  --sun: #F5B43A;
+  --sun-ink: #1F1A0B;
+  --rose: #C2456A;
+  --font-display: "Outfit", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Lexend", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --radius: 22px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1B1A; --band: #142624; --card: #1A2E2B; --ink: #EAF4F1; --muted: #A9C1BC;
+    --line: #2B4440; --teal: #5BC6BD; --teal-ink: #0B1A18; --sun: #F5B43A; --sun-ink: #1F1A0B;
+    --rose: #F08AA6; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1B1A; --band: #142624; --card: #1A2E2B; --ink: #EAF4F1; --muted: #A9C1BC;
+  --line: #2B4440; --teal: #5BC6BD; --teal-ink: #0B1A18; --sun: #F5B43A; --sun-ink: #1F1A0B;
+  --rose: #F08AA6; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 19px; line-height: 1.6;
+}
+.wrap {
+  max-width: 1080px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.12; margin: 0; text-wrap: balance; }
+h2 { font-size: clamp(30px, 5vw, 42px); font-weight: 800; }
+h3 { font-size: 24px; font-weight: 700; }
+p { margin: 0; }
+a { color: var(--teal); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 8px; }
+section { padding-block: 64px; }
+.band { background: var(--band); }
+.eyebrow {
+  font-family: var(--font-display); font-weight: 700; font-size: 16px;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--rose);
+}
+.lede { font-size: 21px; color: var(--muted); max-width: 38ch; }
+.stack { display: flex; flex-direction: column; gap: 16px; }
+.section-head { display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; max-width: 46rem; }
+
+/* One button family, ≥56px tall */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 60px; padding: 0 28px; border-radius: 999px;
+  font-family: var(--font-display); font-weight: 700; font-size: 20px;
+  text-decoration: none; border: 2px solid transparent;
+}
+.btn-sun { background: var(--sun); color: var(--sun-ink); }
+.btn-sun:hover { filter: brightness(1.05); }
+.btn-line { border-color: var(--teal); color: var(--teal); background: transparent; }
+.btn-line:hover { background: var(--card); }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* One pill family */
+.pill {
+  display: inline-block; padding: 4px 14px; border-radius: 999px;
+  font-size: 15px; font-weight: 600; background: var(--band); color: var(--teal);
+  border: 1px solid var(--line);
+}
+.pill.free { background: var(--sun); color: var(--sun-ink); border-color: transparent; }
+
+/* Demo strip */
+.demo-strip { background: var(--teal); color: var(--teal-ink); font-size: 16px; text-align: center; }
+.demo-strip .wrap { padding-block: 10px; }
+
+/* Top bar */
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 14px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+.brand-mark {
+  width: 48px; height: 48px; border-radius: 50%; background: var(--teal); color: var(--teal-ink);
+  display: grid; place-items: center; flex: none;
+}
+.brand-name { font-family: var(--font-display); font-weight: 800; font-size: 22px; line-height: 1.1; }
+.brand-name small { display: block; font-family: var(--font-body); font-weight: 400; font-size: 15px; color: var(--muted); }
+.top-call { font-family: var(--font-display); font-weight: 700; font-size: 19px; color: var(--teal); text-decoration: none; min-height: 56px; display: inline-flex; align-items: center; }
+
+/* Hero */
+.hero { padding-block: 24px 64px; }
+.hero-grid { display: grid; gap: 32px; align-items: center; }
+.hero h1 { font-size: clamp(38px, 8vw, 64px); font-weight: 800; }
+.hero h1 em { font-style: normal; color: var(--teal); }
+.hero-photo { position: relative; }
+.hero-photo img {
+  width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); display: block;
+}
+.hero-photo figcaption { font-size: 15px; color: var(--muted); margin-top: 8px; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 20px; font-size: 17px; color: var(--muted); }
+.facts span::before { content: "✓ "; color: var(--teal); font-weight: 700; }
+@media (min-width: 860px) {
+  .hero-grid { grid-template-columns: 1.05fr 1fr; gap: 48px; }
+}
+
+/* Classes */
+.classes { display: grid; gap: 20px; }
+@media (min-width: 760px) { .classes { grid-template-columns: 1fr 1fr; } }
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 28px; display: flex; flex-direction: column; gap: 14px; min-width: 0;
+}
+.card .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.card dl { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; }
+.card dt { font-weight: 600; color: var(--muted); font-size: 17px; }
+.card dd { margin: 0; }
+.card .btns { margin-top: auto; padding-top: 6px; }
+.card .btn { width: 100%; }
+@media (max-width: 420px) { .card { padding: 22px 18px; } .card dl { grid-template-columns: 1fr; gap: 0; } .card dd { margin-bottom: 8px; } }
+
+/* What it is */
+.two { display: grid; gap: 36px; }
+@media (min-width: 860px) { .two { grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; } }
+.why { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; }
+.why li { display: grid; grid-template-columns: 36px 1fr; gap: 12px; align-items: start; }
+.why .dot { width: 36px; height: 36px; border-radius: 50%; background: var(--sun); color: var(--sun-ink); display: grid; place-items: center; font-weight: 700; }
+
+/* Meet Mary Jo */
+.meet-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.meet-photos img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius); display: block; }
+.meet-photos figure { margin: 0; }
+.meet-photos figcaption { font-size: 15px; color: var(--muted); margin-top: 6px; }
+
+/* Testimonials */
+.quotes { display: grid; gap: 20px; }
+@media (min-width: 760px) { .quotes { grid-template-columns: 1fr 1fr; } }
+blockquote { margin: 0; }
+.quote p { font-size: 20px; }
+.quote footer { font-family: var(--font-display); font-weight: 700; color: var(--teal); }
+.quote::before { content: "\201C"; font-family: var(--font-display); font-size: 64px; line-height: .6; color: var(--sun); height: 24px; }
+
+/* Photos */
+.gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+@media (min-width: 760px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+.gallery img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 16px; display: block; }
+.gallery-note {
+  margin-top: 18px; padding: 14px 18px; border: 2px dashed var(--line); border-radius: 16px;
+  font-size: 16px; color: var(--muted);
+}
+
+/* Contact */
+.contact { background: var(--teal); color: var(--teal-ink); }
+.contact h2 { color: var(--teal-ink); }
+.contact .lede { color: var(--teal-ink); opacity: .9; }
+.contact-grid { display: grid; gap: 16px; margin-top: 32px; }
+@media (min-width: 760px) { .contact-grid { grid-template-columns: repeat(3, 1fr); } }
+.contact-card {
+  background: var(--card); color: var(--ink); border-radius: var(--radius); padding: 24px;
+  display: flex; flex-direction: column; gap: 6px; min-width: 0;
+}
+.contact-card .label { font-size: 16px; color: var(--muted); }
+.contact-card a { font-family: var(--font-display); font-weight: 700; font-size: 22px; overflow-wrap: anywhere; min-height: 44px; display: inline-flex; align-items: center; }
+.press { margin-top: 28px; font-size: 17px; }
+.press a { color: var(--teal-ink); }
+
+footer.site { padding-block: 28px; font-size: 15px; color: var(--muted); }
+</style>
+
+<div class="demo-strip"><div class="wrap">Preview of a new one-page website. Not live yet.</div></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Healthy Steps with Mary Jo, back to top">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 20c-1.7 0-3-1.6-3-3.5S5 12 6.5 12 9 13.6 9 15.5 8.7 20 7 20Z"/><path d="M17 12c-1.7 0-2-4-2-5.5S16 3 17.5 3 20 4.6 20 6.5 18.7 12 17 12Z"/></svg>
+      </span>
+      <span class="brand-name">Healthy Steps<small>with Mary Jo Brown · Chico, CA</small></span>
+    </a>
+    <a class="top-call" href="tel:5302284753">Call 530-228-4753</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="stack">
+        <span class="eyebrow">Gentle exercise to music</span>
+        <h1>Get stronger, steadier and <em>happier</em>, at your own pace.</h1>
+        <p class="lede">Easy-to-follow classes for strength, balance and flexibility. Sit or stand. Come as you are. Leave smiling.</p>
+        <div class="btns">
+          <a class="btn btn-sun" href="#classes">See class times</a>
+          <a class="btn btn-line" href="mailto:healthystepswithmjb@gmail.com?subject=Free%20Healthy%20Steps%20class">Try a free class</a>
+        </div>
+        <div class="facts"><span>Teaching since 2006</span><span>In Chico and on Zoom</span><span>All fitness levels</span></div>
+      </div>
+      <figure class="hero-photo" style="margin:0">
+        <img src="img/class-lakeside.jpg" alt="Mary Jo leading a seated and standing stretch at Lakeside Pavilion" width="1600" height="1066">
+        <figcaption>Move and Feel Better class at Lakeside Pavilion</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band" id="classes">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Classes</span>
+        <h2>Find a class that fits you</h2>
+        <p class="lede">Four ways to join. Not sure which one is right? Call Mary Jo and she'll help you choose.</p>
+      </div>
+      <div class="classes">
+        <article class="card">
+          <div class="pills"><span class="pill">On Zoom</span><span class="pill free">2 free classes</span></div>
+          <h3>Healthy Steps on Zoom</h3>
+          <p>Start your day with a smile. Gentle stretching, balance and cardio to upbeat music, sitting or standing, from your own living room. Stay after for a chat.</p>
+          <dl>
+            <dt>When</dt><dd>Tuesday &amp; Thursday, 8:30–9:30 am</dd>
+            <dt>Cost</dt><dd>$12 drop-in or $50 a month</dd>
+            <dt>Missed one?</dt><dd>Ask for the recording</dd>
+          </dl>
+          <div class="btns"><a class="btn btn-sun" href="mailto:healthystepswithmjb@gmail.com?subject=Zoom%20class%20invite">Email for a Zoom invite</a></div>
+        </article>
+
+        <article class="card">
+          <div class="pills"><span class="pill">In Chico</span><span class="pill">Chico Rec (CARD)</span></div>
+          <h3>Move and Feel Better</h3>
+          <p>Getting back into shape, or just want something gentle? A warm-up, then strength, balance and cardio, and a relaxing cool-down.</p>
+          <dl>
+            <dt>Where</dt><dd>Lakeside Pavilion, 2565 California Park Dr</dd>
+            <dt>When</dt><dd>Tuesday &amp; Thursday, 10:15–11:15 am</dd>
+            <dt>Cost</dt><dd>$64 for 4 weeks (8 classes)</dd>
+          </dl>
+          <div class="btns"><a class="btn btn-sun" href="https://www.chicorec.com" target="_blank" rel="noopener">Sign up at Chico Rec</a></div>
+        </article>
+
+        <article class="card">
+          <div class="pills"><span class="pill">In Chico</span><span class="pill free">No cost</span></div>
+          <h3>Move and Thrive</h3>
+          <p>For people living with cancer. Gentle exercise to regain range of motion, ease swelling from lymphedema, and bring back some joy. Seated or standing.</p>
+          <dl>
+            <dt>Where</dt><dd>Enloe Cancer Center, 265 Cohasset Rd</dd>
+            <dt>When</dt><dd>Mondays 4:00 pm, Wednesdays 2:30 pm</dd>
+            <dt>Sign up</dt><dd>Call Enloe at 530-332-3856</dd>
+          </dl>
+          <div class="btns"><a class="btn btn-sun" href="tel:5303323856">Call 530-332-3856</a></div>
+        </article>
+
+        <article class="card">
+          <div class="pills"><span class="pill">In Chico</span><span class="pill free">Free · just show up</span></div>
+          <h3>Balance with a Beat</h3>
+          <p>Build strength and steadier balance with music, rhythm and fun percussion props. No sign-up needed.</p>
+          <dl>
+            <dt>Where</dt><dd>Westmont Senior Living, 2750 Sierra Sunrise Terrace</dd>
+            <dt>When</dt><dd>A few times a month. Call or email for dates.</dd>
+          </dl>
+          <div class="btns"><a class="btn btn-sun" href="mailto:healthystepswithmjb@gmail.com?subject=Balance%20with%20a%20Beat%20dates">Ask for this month's dates</a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about-program">
+    <div class="wrap two">
+      <div class="stack">
+        <span class="eyebrow">What is Healthy Steps?</span>
+        <h2>Exercise that started as a gift to a mom</h2>
+        <p>Sherry Lebed Davis and her doctor brothers created Healthy Steps to help their mother recover from breast cancer treatment. They mixed exercises for lymphedema with gentle dance moves to lift her mood and energy. It worked, and today it's taught in about 900 places around the world.</p>
+        <p>Every class starts with lymphatic breathing, then moves through easy routines set to upbeat music. There's always time to talk and laugh.</p>
+        <p><a href="https://www.gohealthysteps.com" target="_blank" rel="noopener">Learn more at gohealthysteps.com</a></p>
+      </div>
+      <ul class="why">
+        <li><span class="dot" aria-hidden="true">1</span><span><strong>Starts where you are.</strong> Safe for people dealing with cancer, diabetes, knee or back pain, or recovering from surgery.</span></li>
+        <li><span class="dot" aria-hidden="true">2</span><span><strong>Better balance and strength</strong> for everyday things: stairs, jars, getting up from a chair.</span></li>
+        <li><span class="dot" aria-hidden="true">3</span><span><strong>More energy and easier movement</strong>, a little more each week.</span></li>
+        <li><span class="dot" aria-hidden="true">4</span><span><strong>Friends who show up for you.</strong> Many students say the group feels like family.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band" id="meet">
+    <div class="wrap two">
+      <div class="meet-photos">
+        <figure><img src="img/mary-jo.jpg" alt="Mary Jo Brown smiling outdoors" width="216" height="216"><figcaption>Mary Jo Brown</figcaption></figure>
+        <figure><img src="img/custard-tart.jpg" alt="Custard Tart the orange cat lying on Healthy Steps warm-up sheets" width="800" height="453"><figcaption>Custard Tart, class helper</figcaption></figure>
+      </div>
+      <div class="stack">
+        <span class="eyebrow">Meet your teacher</span>
+        <h2>Hi, I'm Mary Jo</h2>
+        <p>I started dancing at age 5 and plan to never stop. I taught in public schools for 38 years, including 20 years with high school students facing emotional challenges.</p>
+        <p>In 2006 a friend told me about Healthy Steps, and I trained with its founder, Sherry Lebed Davis. I've taught it in Chico ever since: at Enloe Cancer Center, through Chico Rec, and on Zoom with students from all over the country.</p>
+        <p>My cat, Custard Tart, sometimes joins the Zoom classes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kind-words">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Kind words</span>
+        <h2>What students say</h2>
+      </div>
+      <div class="quotes">
+        <blockquote class="card quote">
+          <p>I acquired balance, strength and community. Balance equals no falling. Strength equals the ability to open things. Community equals loving others and receiving love.</p>
+          <footer>Donna L.</footer>
+        </blockquote>
+        <blockquote class="card quote">
+          <p>I always feel so much better when we have completed a class, not only physically but emotionally.</p>
+          <footer>Stephaney H., since 2020</footer>
+        </blockquote>
+        <blockquote class="card quote">
+          <p>Mary Jo greeted me with a smile and an encouraging invite. Not only did we exercise, but we became like a close family.</p>
+          <footer>Eleanor A.</footer>
+        </blockquote>
+        <blockquote class="card quote">
+          <p>Healthy Steps is a great program. It helps with the physical challenges of recovery and gives a comfortable network of support.</p>
+          <footer>Dr. Jason Gonzales, DC</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="photos">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Recent photos</span>
+        <h2>Out and about with Healthy Steps</h2>
+      </div>
+      <div class="gallery">
+        <img src="img/dance-floor.jpg" alt="Students dancing at Lakeside Pavilion" width="216" height="216" loading="lazy">
+        <img src="img/zoom-teaparty.jpg" alt="Zoom class tea party, everyone holding a teacup" width="1000" height="654" loading="lazy">
+        <img src="img/class-lakeside.jpg" alt="Stretching together in class" width="1600" height="1066" loading="lazy">
+        <img src="img/zoom-birthday.jpg" alt="Zoom class celebrating a birthday" width="515" height="363" loading="lazy">
+        <img src="img/zoom-class.jpg" alt="Smiling faces on a Zoom class" width="1000" height="522" loading="lazy">
+        <img src="img/custard-tart.jpg" alt="Custard Tart the cat" width="800" height="453" loading="lazy">
+      </div>
+      <p class="gallery-note">For the demo, these photos come from the current website. On the finished site, this section will show Mary Jo's newest Facebook photos.</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="section-head" style="margin-bottom:0">
+        <h2>Questions? Mary Jo would love to hear from you.</h2>
+        <p class="lede">Call, email or say hi on Facebook. Ask about two free classes.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card"><span class="label">Phone</span><a href="tel:5302284753">530-228-4753</a></div>
+        <div class="contact-card"><span class="label">Email</span><a href="mailto:healthystepswithmjb@gmail.com">healthystepswithmjb@gmail.com</a></div>
+        <div class="contact-card"><span class="label">Facebook</span><a href="https://www.facebook.com/healthystepswithmjb" target="_blank" rel="noopener">Healthy Steps with MJB</a></div>
+      </div>
+      <p class="press">In the news: <a href="https://www.chicorec.gov/mary-jo-brown-brings-movement-music-and-connection-to-card-s-move-feel-better-classes" target="_blank" rel="noopener">Mary Jo Brown brings movement, music, and connection to CARD's Move &amp; Feel Better classes</a></p>
+    </div>
+  </section>
+</main>
+
+<footer class="site"><div class="wrap">© 2026 Healthy Steps with Mary Jo Brown · Chico, California</div></footer>
