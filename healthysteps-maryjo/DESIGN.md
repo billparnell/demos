@@ -1,9 +1,9 @@
 # Healthy Steps demo — design doc
 
 ## Files
-- `page/index.html` — the whole page, plain HTML/CSS, no JS. Published as a Claude artifact
-  with the `img/` files alongside. Republish from this path to keep the same URL.
-- `page/img/` — resized copies of photos from her site (gitignored). Originals live under
+- `public/healthysteps/index.html` (repo root) — the whole page, a standalone HTML doc, no JS.
+  Served at demos.parnellprojects.com/healthysteps/.
+- `public/healthysteps/img/` — resized copies of photos from her site (committed; repo is private). Originals live under
   `https://healthysteps-maryjo.com/wp-content/uploads/`:
 
 | File | Original |
@@ -23,6 +23,7 @@ The homepage slider images are stock with text baked in; deliberately not used.
   Full dark-mode token set.
 - Outfit (headings, 800) + Lexend (body, 19px; designed for readability).
 - One button family (pill, 60px tall), one pill/badge family, one card family (22px radius, 1px line).
+- Every `<img>` has `height: auto`; without it the width/height attributes beat `aspect-ratio` and photos stretch tall on phones.
 - Audience is older: body ≥19px, buttons ≥56px, plain copy, phone number in the header.
 
 ## Section order

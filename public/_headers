@@ -1,0 +1,6 @@
+# Demos use real business names but are not their official sites.
+# Keep every page out of search results.
+/*
+  X-Robots-Tag: noindex, nofollow
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

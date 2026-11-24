@@ -5,8 +5,10 @@ A one-page redesign demo for **Mary Jo Brown's Healthy Steps** (gentle therapeut
 exercise to music, Chico CA + Zoom). Current site: https://healthysteps-maryjo.com
 (WordPress/Genesis, built by Studio Nine Design). Facebook: https://www.facebook.com/healthystepswithmjb
 
-Demo page (private until shared from its Share menu): **https://claude.ai/artifact/2vBNg5istCQUc7pewxpqFa**
-Source: `page/index.html`. Photos in `page/img/` are hers and are not committed.
+Public demo URL (once Bill pushes and Cloudflare is set up): **https://demos.parnellprojects.com/healthysteps/**
+Source: `../public/healthysteps/index.html` + `img/`. That file is the source of truth.
+The earlier Claude artifact (https://claude.ai/artifact/2vBNg5istCQUc7pewxpqFa) is a v1
+snapshot and has the stretched-photo bug fixed on 2026-11-24; don't share it.
 
 ## The brief (Bill, 2026-11-23)
 > Quick one pager demo. She doesn't want the newsletter or blog going forward.

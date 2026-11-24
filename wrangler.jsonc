@@ -1,0 +1,8 @@
+// Cloudflare Worker (static assets only) for demos.parnellprojects.com.
+// Everything in ./public gets a URL; nothing else in this repo does.
+// See ~/Documents/repos/PLAYBOOK.md section 9.
+{
+  "name": "demos",
+  "compatibility_date": "2026-11-24",
+  "assets": { "directory": "./public" }
+}

@@ -2,5 +2,3 @@
 .venv/
 .env
 
-# client photos (not ours to commit)
-*/page/img/
